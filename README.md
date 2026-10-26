@@ -40,3 +40,54 @@
 <p>Treat unhealthy patients in each room. And check for the unhealthy patients in random room</p>
 <h3>STEP 5:</h3>
 <p>Measure the performance parameters: For each treatment performance incremented, for each movement performance decremented</p>
+
+# PROGRAM:
+```
+class VacuumCleanerAgent:
+    def __init__(self):
+        self.location = "A"
+        self.dirt_status = {"A": False, "B": False}
+
+    def move_left(self):
+        if self.location == "B":
+            self.location = "A"
+
+    def move_right(self):
+        if self.location == "A":
+            self.location = "B"
+
+    def suck_dirt(self):
+        if self.dirt_status[self.location]:
+            self.dirt_status[self.location] = False
+        print(f"Sucked dirt in location {self.location}")
+
+    def do_nothing(self):
+        pass
+
+    def perform_action(self, action):
+        if action == "left":
+            self.move_left()
+        elif action == "right":
+            self.move_right()
+        elif action == "suck":
+            self.suck_dirt()
+        elif action == "nothing":
+            self.do_nothing()
+        else:
+            print("Invalid action")
+
+    def print_status(self):
+        print(f"Location: {self.location}, Dirt Status: {self.dirt_status}")
+
+agent = VacuumCleanerAgent()
+agent.print_status()
+agent.perform_action("suck")
+agent.print_status()
+agent.perform_action("nothing")
+agent.print_status()
+```
+# OUTPUT:
+<img width="537" height="221" alt="image" src="https://github.com/user-attachments/assets/0ff9567a-fffc-4cc0-b9ee-d98193c83940" />
+
+# RESULT:
+Thus the Developing AI Apent with PEAS Description was implemented using python programming.
